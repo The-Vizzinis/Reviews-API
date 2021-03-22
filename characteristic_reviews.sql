@@ -4,7 +4,7 @@ CREATE TABLE characteristics_reviews (
   id SERIAL PRIMARY KEY, 
   characteristics_id INT, 
   review_id INT, 
-  "value" TEXT,
+  "value" INT,
   FOREIGN KEY (characteristics_id) REFERENCES characteristics (id),
   FOREIGN KEY (review_id) REFERENCES review (id)
 );

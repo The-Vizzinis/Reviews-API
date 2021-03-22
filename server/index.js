@@ -4,14 +4,14 @@ const axios = require('axios');
 const path = require('path');
 const db = require('../db');
 const app = express();
-const PORT = 3000;
+const PORT = 3004;
 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/reviews/:product_id/:count/:sort', (req, res) => {
-  let { product_id, count, sort } = req.params;
+app.get('/reviews', (req, res) => {
+  const { product_id, count, sort } = req.query;
   let queryString;
   if (sort === 'newest') {
     queryString = 
@@ -67,8 +67,8 @@ app.get('/reviews/:product_id/:count/:sort', (req, res) => {
     });
 })
 
-app.get('/reviews/meta/:product_id', (req, res) => {
-  const { product_id } = req.params;
+app.get('/reviews/meta', (req, res) => {
+  const { product_id } = req.query;
 
   const results = {
     product_id: product_id,

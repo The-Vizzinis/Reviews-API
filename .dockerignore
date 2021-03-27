@@ -1,0 +1,9 @@
+node_modules
+csv
+reviewdb.sql
+SDC2.pem
+characteristic_reviews.sql
+reviews_photos.sql
+reviews.sql
+product.sql
+characteristics.sql

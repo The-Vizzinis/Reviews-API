@@ -1,6 +1,4 @@
 node_modules
-characteristic_reviews.csv
-reviews_photos.csv
-reviews.csv
-product.csv
-characteristics.csv
+csv
+reviewdb.sql
+SDC2.pem

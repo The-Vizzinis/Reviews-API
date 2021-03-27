@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3004;
 
 app.use(morgan('dev'));
+app.use(express.static('./public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -69,6 +70,7 @@ app.get('/reviews', (req, res) => {
 
 app.get('/reviews/meta', (req, res) => {
   const { product_id } = req.query;
+  console.log(product_id)
 
   const results = {
     product_id: product_id,
@@ -95,7 +97,7 @@ app.get('/reviews/meta', (req, res) => {
 
   db.query(queryStr) 
     .then((response) => {
-      // console.log(response[0].rows);
+      console.log(response[0].rows);
       for (let i = 0; i < response[0].rows.length; i++) {
         results.ratings[response[0].rows[i].rating] += 1
       }
@@ -166,6 +168,8 @@ app.put('/reviews/:review_id/report', (req, res) => {
       res.status(500);
     })
 })
+
+app.get('loaderio-e278e3d3c4ef30da9909612645376b4e')
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);

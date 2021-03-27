@@ -1,10 +1,11 @@
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const connection = new Client({
-  user: 'johnkwak', 
-  host: 'localhost',
-  password: 'student',
-  database: 'reviews'
+const connection = new Pool({
+  user: 'postgres', // postgres
+  host: '3.101.31.131', // aws instance  // host.docker.internal // localhost
+  password: '1qa2ws!QA@WS',
+  database: 'postgres',
+  port: 5432
 });
 
 connection.connect((err) => {
